@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ENDE Forge
 
-## Getting Started
+ENDE Forge is a web-based text conversion and formatting tool, designed for encoding, decoding, and formatting text in various formats. The app supports Base64 encoding/decoding, URI encoding/decoding, and JSON stringification, with a flexible "flow" system that lets users chain multiple conversions together. The app also includes automatic format detection and text formatting based on detected formats, making it an all-in-one tool for developers and content creators.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Encoding and Decoding**: 
+  - Base64 Encode/Decode
+  - URI Encode/Decode
+  - JSON Stringify
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Flow System**: 
+  - Add multiple conversion steps to a pipeline for chaining operations.
+  - Easily remove or clear conversion steps.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Format Detection**:
+  - Detects JSON, Base64, and URI formats in the output.
+  - Provides the ability to format detected formats (e.g., prettifying JSON).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Utility Buttons**:
+  - Copy the output to the clipboard.
+  - Paste from the clipboard into the input field.
+  
+- **Interactive UI**:
+  - Built with React and Framer Motion for smooth animations and an engaging user experience.
+  - Responsive design for both desktop and mobile usage.
 
-## Learn More
+## Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+- **Next.js**: Front-end framework for building the interactive UI.
+- **Framer Motion**: Provides smooth animations and interactions within the app.
+- **Lucide Icons**: Modern icon set for the UI.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contact
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For any feedback, reach out to me on [Twitter](https://x.com/abhayprajapati_).
