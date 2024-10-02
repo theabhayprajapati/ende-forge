@@ -1,15 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ChevronDownIcon,
   TrashIcon,
   CopyIcon,
   ClipboardIcon,
-  ChevronRightIcon,
   MoveRightIcon,
 } from "lucide-react";
-import beautify from "js-beautify"; // Library to format JSON
 
 interface Converter {
   id: string;
@@ -67,6 +65,7 @@ export function detectTextFormat(content: string): string {
       JSON.parse(content);
       return "JSON";
     } catch (e) {
+      console.error(e);
       // Not valid JSON, continue checking
     }
   }
@@ -156,7 +155,7 @@ export default function Editor() {
   const [output, setOutput] = useState<string>("");
   const [flow, setFlow] = useState<Converter[]>([]);
   const [mode, setMode] = useState<"encode" | "decode">("decode");
-  const [showUtilityButtons, setShowUtilityButtons] = useState<boolean>(true);
+  const [showUtilityButtons] = useState<boolean>(true);
 
   const toggleMode = () => {
     setMode(mode === "encode" ? "decode" : "encode");
@@ -182,6 +181,7 @@ export default function Editor() {
       });
       setOutput(result);
     } catch (error) {
+      console.log(error);
       setOutput("Error: Invalid conversion");
     }
   };
@@ -194,10 +194,6 @@ export default function Editor() {
     navigator.clipboard.readText().then((text) => setInput(text));
   };
 
-  const checkInputSize = () => {
-    const size = new Blob([input]).size;
-    setShowUtilityButtons(size > 1024);
-  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 p-4">

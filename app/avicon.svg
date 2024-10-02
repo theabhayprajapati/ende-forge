@@ -1,0 +1,61 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 200 200"
+  width="200"
+  height="200"
+>
+  <!-- Background Glow -->
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:rgb(56, 189, 248); stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(12, 74, 110); stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <circle cx="100" cy="100" r="100" fill="url(#glow)" />
+
+  <!-- Swirling Nebula -->
+  <g fill="none" stroke="rgb(255, 255, 255)" stroke-width="2">
+    <path
+      d="M 100 20
+         C 50 40, 50 80, 100 100
+         C 150 120, 150 160, 100 180
+         C 70 160, 40 120, 100 100
+         C 140 80, 120 40, 100 20"
+      stroke="rgb(169, 243, 252)"
+    />
+  </g>
+
+  <!-- Forge Hammer -->
+  <rect
+    x="90"
+    y="80"
+    width="20"
+    height="50"
+    fill="rgb(245, 245, 245)"
+    stroke="rgb(112, 112, 112)"
+    stroke-width="2"
+  />
+  <rect
+    x="85"
+    y="75"
+    width="30"
+    height="10"
+    fill="rgb(245, 245, 245)"
+    stroke="rgb(112, 112, 112)"
+    stroke-width="2"
+  />
+
+  <!-- Forge Text -->
+  <text
+    x="50%"
+    y="90%"
+    text-anchor="middle"
+    fill="rgb(169, 243, 252)"
+    font-family="Arial, sans-serif"
+    font-size="24"
+    letter-spacing="2"
+  >
+    ENDE Forge
+  </text>
+</svg>
