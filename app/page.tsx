@@ -1,31 +1,55 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Editor from "./components/Editor";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
-  return (
-    <>
-      <Editor />
-      <footer className="w-full bg-gray-900 text-gray-400 py-4  bottom-0">
-      <div className="container mx-auto flex justify-center gap-4 items-center px-4">
-        <a
-          href="https://github.com/theabhayprajapati/ende-forge"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-cyan-400 transition-colors duration-300"
-        >
-          @github
-        </a>
+  const [showFooter, setShowFooter] = useState(false);
 
-        <a
-          href="https://x.com/abhayprajapati_"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-cyan-400 transition-colors duration-300"
-        >
-          @abhayprajapati_
-        </a>
-      </div>
-    </footer>
-    </>
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const threshold = 100; // pixels from bottom to trigger footer
+
+      // Show footer when near bottom of page
+      setShowFooter(scrollPosition > documentHeight - threshold);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <main className="flex-1 min-h-screen">
+      <Editor />
+      <footer 
+        className={cn(
+          "fixed bottom-0 left-0 right-0 border-t border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300",
+          showFooter ? "translate-y-0" : "translate-y-full"
+        )}
+      >
+        <div className="container flex h-14 items-center justify-between px-4">
+          <div className="flex items-center space-x-4">
+            <a
+              href="https://github.com/theabhayprajapati/ende-forge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              @github
+            </a>
+            <a
+              href="https://x.com/abhayprajapati_"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              @abhayprajapati_
+            </a>
+          </div>
+        </div>
+      </footer>
+    </main>
   );
 }

@@ -19,17 +19,20 @@ export const metadata: Metadata = {
   keywords:
     "text, conversion, encode, decode, base64, url, html, json, xml, csv, markdown, yaml, toml, ini, binary, hex, ascii, unicode, escape, unescape, compress, decompress, minify, prettify, beautify, format, validate, convert, tool, utility, online, free",
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background text-foreground`}
       >
-        {children}
+        <div className="relative flex min-h-screen flex-col">
+          <div className="flex-1">{children}</div>
+        </div>
       </body>
     </html>
   );
